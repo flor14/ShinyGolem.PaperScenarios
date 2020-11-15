@@ -10,7 +10,21 @@ app_ui <- function(request) {
     golem_add_external_resources(),
     # List the first level UI elements here 
     fluidPage(
-      h1("ShinyGolem.PaperScenarios")
+      # Application title
+     # golem::get_golem_options("mydata"),
+      titlePanel("PWC Scenarios"),
+      sidebarLayout(
+        sidebarPanel(
+          selectInput("polygon", "Polygon",
+                      choices = unique(pampa_polygon$id_uc_gid),
+                      selected = "A329_49", multiple = TRUE)
+       ),
+        
+        # Show Leaflet
+        mainPanel(
+          leaflet::leafletOutput("pampaPlot", width = "100%")
+        )
+      )
     )
   )
 }

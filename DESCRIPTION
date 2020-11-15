@@ -1,7 +1,7 @@
 Package: ShinyGolem.PaperScenarios
 Title: Suplementary material - Shiny app
 Version: 0.0.0.9000
-Authors@R: person('Florencia', 'D'Andrea', email = 'florencia.dandrea@gmail.com', role = c('cre', 'aut'))
+Authors@R: person('Florencia', 'D´Andrea', email = 'florencia.dandrea@gmail.com', role = c('cre', 'aut'))
 Description: Shiny app generated as supplementary material to the paper 'Statistically-based soil-climate exposure scenarios for aquatic pesticide fate modelling and exposure assessment in the Pampa Region of Argentina'
 License: CC BY 4.0
 Imports: 
@@ -13,11 +13,18 @@ Imports:
     DT,
     glue,
     htmltools,
-    thinkr
+    thinkr,
+    leaflet,
+    sf,
+    rnaturalearth,
+    rnaturalearthdata,
+    dplyr
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 6.1.1
+RoxygenNote: 7.1.1
 URL: https://github.com/flor14/ShinyGolem.PaperScenarios.git
 BugReports: https://github.com/flor14/ShinyGolem.PaperScenarios.git/issues
 Suggests: 
     testthat
+Depends: 
+    R (>= 2.10)

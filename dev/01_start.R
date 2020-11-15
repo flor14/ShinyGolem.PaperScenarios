@@ -15,13 +15,14 @@
 ## Add meta data about your application
 golem::fill_desc(
   pkg_name = "ShinyGolem.PaperScenarios", # The Name of the package containing the App 
-  pkg_title = "PKG_TITLE", # The Title of the package containing the App 
-  pkg_description = "PKG_DESC.", # The Description of the package containing the App 
-  author_first_name = "AUTHOR_FIRST", # Your First Name
-  author_last_name = "AUTHOR_LAST", # Your Last Name
-  author_email = "AUTHOR@MAIL.COM", # Your Email
-  repo_url = NULL # The URL of the GitHub Repo (optional) 
-)     
+  pkg_title = "Suplementary material - Shiny app", # The Title of the package containing the App 
+  pkg_description = "Shiny app generated as supplementary material to the paper 'Statistically-based soil-climate exposure scenarios for aquatic pesticide fate modelling and exposure assessment in the Pampa Region of Argentina'", # The Description of the package containing the App 
+  author_first_name = "Florencia", # Your First Name
+  author_last_name = "D'Andrea",  # Your Last Name
+  author_email = "florencia.dandrea@gmail.com",      # Your Email
+  repo_url = "https://github.com/flor14/ShinyGolem.PaperScenarios.git" # The (optional) URL of the GitHub Repo
+)
+     
 
 ## Set {golem} options ----
 golem::set_golem_options()
