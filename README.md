@@ -28,8 +28,12 @@ install.packages("ShinyGolem.PaperScenarios")
 This is a basic example which shows you how to solve a common problem:
 
 ``` r
+
+install.packages("remotes")
+library(remotes)
+remotes::install_github("flor14/ShinyGolem.PaperScenarios")
 library(ShinyGolem.PaperScenarios)
-## basic example code
+ShinyGolem.PaperScenarios::run_app()
 ```
 
 What is special about using `README.Rmd` instead of just `README.md`?
