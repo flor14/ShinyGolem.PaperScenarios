@@ -29,7 +29,7 @@ golem::set_golem_options()
 
 ## Create Common Files ----
 ## See ?usethis for more information
-usethis::use_mit_license( name = "Golem User" )  # You can set another license here
+usethis::use_mit_license( name = "Florencia D'Andrea" )  # You can set another license here
 usethis::use_readme_rmd( open = FALSE )
 usethis::use_code_of_conduct()
 usethis::use_lifecycle_badge( "Experimental" )
@@ -48,7 +48,9 @@ golem::use_recommended_deps()
 ## Favicon ----
 # If you want to change the favicon (default is golem's one)
 golem::remove_favicon()
-golem::use_favicon() # path = "path/to/ico". Can be an online file. 
+golem::use_favicon("inst/app/www/favicon.png") # path = "path/to/ico". Can be an online file. 
+# favicon(ico = "favicon", rel = "shortcut icon",
+#         resources_path = "www", ext = "png")
 
 ## Add helper functions ----
 golem::use_utils_ui()

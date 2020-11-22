@@ -23,6 +23,11 @@ usethis::use_package( "dplyr" )
 usethis::use_package( "rnaturalearth" )
 usethis::use_package( "rnaturalearthdata" )
 usethis::use_package( "golem" )
+usethis::use_package( "shinythemes" )
+usethis::use_package( "plotly" )
+usethis::use_package( "ggplot2" )
+usethis::use_package( "forcats" )
+usethis::use_package( "shinycssloaders" )
 
 ## Add modules ----
 ## Create a module infrastructure in R/
@@ -44,7 +49,7 @@ golem::add_css_file( "custom" )
 ## If you have data in your package
 #pampa_polygon <- sf::st_read("C:/Users/FLORENCIA/Dropbox/shiny_map_pwc/pampa_polygon.shp")
 usethis::use_data_raw( name = "pampa_polygon", open = FALSE ) 
-
+usethis::use_data_raw( name = "temp_80_percentiles_4d", open = FALSE ) 
 ## Tests ----
 ## Add one line by test you want to create
 usethis::use_test( "app" )

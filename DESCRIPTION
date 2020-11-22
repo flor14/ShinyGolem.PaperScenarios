@@ -3,7 +3,7 @@ Title: Suplementary material - Shiny app
 Version: 0.0.0.9000
 Authors@R: person('Florencia', 'D´Andrea', email = 'florencia.dandrea@gmail.com', role = c('cre', 'aut'))
 Description: Shiny app generated as supplementary material to the paper 'Statistically-based soil-climate exposure scenarios for aquatic pesticide fate modelling and exposure assessment in the Pampa Region of Argentina'
-License: CC BY 4.0
+License: MIT + file LICENSE
 Imports: 
     config,
     golem,
@@ -19,7 +19,12 @@ Imports:
     rnaturalearth,
     rnaturalearthdata,
     dplyr,
-    pkgload
+    pkgload,
+    shinythemes,
+    plotly,
+    ggplot2,
+    forcats,
+    shinycssloaders
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.1
