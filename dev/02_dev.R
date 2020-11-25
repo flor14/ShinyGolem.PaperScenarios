@@ -52,7 +52,8 @@ usethis::use_data_raw( name = "pampa_polygon", open = FALSE )
 usethis::use_data_raw( name = "temp_80_percentiles_4d", open = FALSE ) 
 ## Tests ----
 ## Add one line by test you want to create
-usethis::use_test( "app" )
+usethis::use_test( )
+shinytest::recordTest()
 
 # Documentation
 
@@ -62,7 +63,7 @@ devtools::build_vignettes()
 
 ## Code coverage ----
 ## (You'll need GitHub there)
-usethis::use_github()
+usethis::use_github_actions() #modifique yo
 usethis::use_travis()
 usethis::use_appveyor()
 
@@ -70,3 +71,5 @@ usethis::use_appveyor()
 # go to dev/03_deploy.R
 rstudioapi::navigateToFile("dev/03_deploy.R")
 
+
+devtools::test()

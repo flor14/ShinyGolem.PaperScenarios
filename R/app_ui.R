@@ -9,7 +9,8 @@ app_ui <- function(request) {
     # Leave this function for adding external resources
     golem_add_external_resources(),
     # List the first level UI elements here 
-    navbarPage(theme = shinythemes::shinytheme("readable"),
+    navbarPage(id = "navbar", 
+               theme = shinythemes::shinytheme("readable"),
                "PWC Scenarios",
                tabPanel("Map", sidebarLayout(
                  sidebarPanel(
