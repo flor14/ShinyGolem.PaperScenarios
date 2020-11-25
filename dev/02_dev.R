@@ -29,6 +29,7 @@ usethis::use_package( "ggplot2" )
 usethis::use_package( "forcats" )
 usethis::use_package( "shinycssloaders" )
 
+
 ## Add modules ----
 ## Create a module infrastructure in R/
 golem::add_module( name = "name_of_module1" ) # Name of the module
