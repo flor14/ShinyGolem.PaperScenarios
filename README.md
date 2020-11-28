@@ -7,9 +7,6 @@
 
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
-[![Travis build
-status](https://travis-ci.com/flor14/ShinyGolem.PaperScenarios.svg?branch=master)](https://travis-ci.com/flor14/ShinyGolem.PaperScenarios)
-
 [![R build
 status](https://github.com/flor14/ShinyGolem.PaperScenarios/workflows/R-CMD-check/badge.svg)](https://github.com/flor14/ShinyGolem.PaperScenarios/actions)
 <!-- badges: end -->
@@ -25,7 +22,7 @@ You can install the released version of ShinyGolem.PaperScenarios from
 install.packages("ShinyGolem.PaperScenarios")
 ```
 
-## Example
+## Para usar la app
 
 This is a basic example which shows you how to solve a common problem:
 
