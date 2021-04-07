@@ -6,6 +6,8 @@
 #' @noRd
 app_server <- function( input, output, session ) {
 
+  library(dplyr) # en teoria no deberia ir aca, pero tengo problemas con las pipe
+  
   # world map (to plot near countries as Uruguay)
   world <- rnaturalearth::ne_countries(scale = "medium", 
                                        returnclass = "sf")
