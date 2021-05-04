@@ -112,7 +112,7 @@ app_server <- function( input, output, session ) {
       res %>% 
         dplyr::filter(kd_factor == input$kd) %>% 
         dplyr::group_by(carto_unit, kd_factor) %>% 
-        dplyr::summarize(n = dplyr::n()) %>% 
+        dplyr::summarize(n = dplyr::n(), freq = round(n/45*100, digits = 2)) %>% 
         dplyr::arrange(desc(n))
     })
  
