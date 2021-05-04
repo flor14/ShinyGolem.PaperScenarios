@@ -52,11 +52,11 @@ golem::add_css_file( "custom" )
 ## If you have data in your package
 
 usethis::use_data_raw( name = "pampa_polygon", open = FALSE ) 
-usethis::use_data(pampa_polygon, overwrite = TRUE)
+usethis::use_data(pampa_polygon, overwrite = TRUE, internal = TRUE)
 usethis::use_data_raw( name = "temp_80_percentiles_4d", open = FALSE ) 
 usethis::use_data_raw( name = "base_tab_resultados_shiny", open = FALSE ) 
  resultados <- sf::read_sf("base_tab_resultados_shiny.shp")
- usethis::use_data(resultados, overwrite = TRUE)
+ usethis::use_data(resultados, overwrite = TRUE, internal = TRUE)
 ## Tests ----
 ## Add one line by test you want to create
 usethis::use_test( )
