@@ -50,7 +50,7 @@ golem::add_css_file( "custom" )
 
 ## Add internal datasets ----
 ## If you have data in your package
-pampa_polygon <- sf::st_read("C:/Users/FLORENCIA/Dropbox/shiny_map_pwc/pampa_polygon.shp")
+
 usethis::use_data_raw( name = "pampa_polygon", open = FALSE ) 
 usethis::use_data(pampa_polygon, overwrite = TRUE)
 usethis::use_data_raw( name = "temp_80_percentiles_4d", open = FALSE ) 

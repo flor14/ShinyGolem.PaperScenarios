@@ -13,6 +13,7 @@ base_triple <- read.delim(sep = " ", "C:/Users/FLORENCIA/Dropbox/pwc_repositorio
   select(id_uc_gid, ZonaORA,SNAM, HYDGRP )
 
 
+
 library(forcats)
 freq_4_60 <- as_tibble(left_join(res4, res60)) %>% # aparecen NAs en la base de datos de 60 ya que hay menos valores
 left_join(base_triple, by = c("carto_unit" = "id_uc_gid")) 
@@ -21,6 +22,13 @@ freq_4_60 <- freq_4_60 %>%
   mutate( kd_factor = cut(kd.1, breaks = c(0, 3, 50, max(freq_4_60$kd.1))) ) 
   
 write.csv(freq_4_60, "base_tab_resultados_shiny.csv")
+
+library(ggplot2)
+
+ggplot(freq_4_60)+
+  geom_point(aes(order, values_4, color = kd_factor)) +
+  facet_grid(vars(kd_factor))
+
 
 freq_4_60 %>% View()
   select(-values_60) %>% 
