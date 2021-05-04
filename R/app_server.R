@@ -24,6 +24,7 @@ app_server <- function( input, output, session ) {
   output$pampaPlot <- leaflet::renderLeaflet({ 
     
     leaflet::leaflet() %>%
+      leaflet::addProviderTiles("Esri.WorldImagery") %>% 
       leaflet::addPolygons(data = world,
                   color = "#444444",
                   weight = 1, 
@@ -100,6 +101,67 @@ app_server <- function( input, output, session ) {
       
       plotly::ggplotly(ggplot) %>% plotly::layout(height = 600,
                                                   width = 600)
+    })
+    
+    
+    res_finales <- reactive({
+      
+      #elimino o 60 o 4
+     res <-  resultados[,!base::names(resultados) %in% c(input$endpoint)]
+      
+      res %>% 
+        dplyr::filter(kd_factor == input$kd) %>% 
+        dplyr::group_by(carto_unit, kd_factor) %>% 
+        dplyr::summarize(n = dplyr::n()) %>% 
+        dplyr::arrange(desc(n))
+    })
+ 
+    
+  
+    
+    
+    output$pampaPlot2 <- renderPlot({
+      
+      pampa_elegida <- res_finales()
+      
+    
+      
+        ggplot2::ggplot()+
+        ggplot2::geom_sf(data= world, 
+                fill= "grey85", colour ="gray5") +
+        ggplot2::geom_sf(data = pampa_polygon,
+                colour = "black", fill = "grey50", size = 1) +
+        #  ggplot2::geom_sf(data = pampa_cent_poly,
+                # colour = "grey5", fill = "antiquewhite2", size = 1.5) +
+        ggplot2::geom_sf(data = pampa_elegida,
+                colour = "black", ggplot2::aes(fill = n), size = 1) +
+        # ggplot2::geom_sf_label(data = pampa_elegida, 
+        #                        ggplot2::aes(label = carto_unit), size = 3, 
+        #                        label.padding = ggplot2::unit(0.5, "lines") )+
+        
+        ggplot2::scale_fill_viridis_c() +
+        ggplot2::coord_sf(xlim = c(-66.25,-56), ylim = c(-40,-29.5))+
+        ggplot2::ylab("Latitude")+
+        ggplot2::xlab("Longitude")+
+       
+        ggplot2::theme_bw()+
+        ggplot2::theme( panel.background = ggplot2::element_rect(fill = "#9AC5E3",
+                                               colour = "#9AC5E3"),
+               
+               panel.border= ggplot2::element_blank(),
+               panel.grid.major= ggplot2::element_blank(),
+               panel.grid.minor= ggplot2::element_blank()) 
+      #  ggplot2::guides(fill= ggplot2::guide_legend(title = NULL )) 
+      
+      
+      
+    })
+    
+    
+    output$tabla <- DT::renderDataTable({
+     
+      sf::st_drop_geometry(res_finales())
+      
     })
    
 }

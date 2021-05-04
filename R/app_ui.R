@@ -12,7 +12,7 @@ app_ui <- function(request) {
     navbarPage(id = "navbar", 
                theme = shinythemes::shinytheme("readable"),
                "PWC Scenarios",
-               tabPanel("Map", sidebarLayout(
+               tabPanel("Soil units searcher", sidebarLayout(
                  sidebarPanel(
                    selectInput("polygon", "Polygon",
                                choices = unique(pampa_polygon$id_uc_gid),
@@ -25,6 +25,31 @@ app_ui <- function(request) {
                  )
                )
                ),
+               tabPanel("Results explorer", 
+                        sidebarLayout(
+                 sidebarPanel(
+                     radioButtons("kd", "Kd",
+                                 choices = c("3 > Kd " = "(0,3]",
+                                             "3 > Kd > 50" ="(3,50]" ,
+                                             " Kd > 50" = "(50,2e+05]"),
+                                 selected = c("3 > Kd > 50" ="(3,50]" )),
+                     radioButtons("endpoint", "Endpoint",
+                                 choices = c("4 day" = "values_60", #!!!
+                                             "60 day" = "values_4"), #invertido a proposito, ver server
+                                 selected = c("4 day" = "values_60")),
+                      width = 2),
+                 mainPanel(
+                   fluidRow(
+                     
+                     column(width = 6, 
+                            shinycssloaders::withSpinner(shiny::plotOutput("pampaPlot2", 
+                                                                           width = "100%"))),
+                     column(width = 4,
+                            h4("Datos"),
+                            DT::dataTableOutput("tabla"))
+                   ), width = 10
+                                  )
+               )) ,
                tabPanel("Pesticides",
                         sidebarLayout(sidebarPanel(selectInput("pesticide", 
                                                                "Pesticide",

@@ -23,9 +23,11 @@ usethis::use_package( "dplyr" )
 usethis::use_package( "rnaturalearth" )
 usethis::use_package( "rnaturalearthdata" )
 usethis::use_package( "golem" )
+usethis::use_package( "DT" )
 usethis::use_package( "shinythemes" )
 usethis::use_package( "plotly" )
 usethis::use_package( "ggplot2" )
+usethis::use_package( "tibble" )
 usethis::use_package( "forcats" )
 usethis::use_package( "shinycssloaders" )
 usethis::use_package( "rgeos" )
@@ -48,9 +50,13 @@ golem::add_css_file( "custom" )
 
 ## Add internal datasets ----
 ## If you have data in your package
-#pampa_polygon <- sf::st_read("C:/Users/FLORENCIA/Dropbox/shiny_map_pwc/pampa_polygon.shp")
+pampa_polygon <- sf::st_read("C:/Users/FLORENCIA/Dropbox/shiny_map_pwc/pampa_polygon.shp")
 usethis::use_data_raw( name = "pampa_polygon", open = FALSE ) 
+usethis::use_data(pampa_polygon, overwrite = TRUE)
 usethis::use_data_raw( name = "temp_80_percentiles_4d", open = FALSE ) 
+usethis::use_data_raw( name = "base_tab_resultados_shiny", open = FALSE ) 
+ resultados <- sf::read_sf("base_tab_resultados_shiny.shp")
+ usethis::use_data(resultados, overwrite = TRUE)
 ## Tests ----
 ## Add one line by test you want to create
 usethis::use_test( )
