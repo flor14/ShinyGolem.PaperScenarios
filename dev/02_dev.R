@@ -56,7 +56,7 @@ usethis::use_data(pampa_polygon, overwrite = TRUE, internal = TRUE)
 usethis::use_data_raw( name = "temp_80_percentiles_4d", open = FALSE ) 
 usethis::use_data_raw( name = "base_tab_resultados_shiny", open = FALSE ) 
  resultados <- sf::read_sf("base_tab_resultados_shiny.shp")
- usethis::use_data(resultados, overwrite = TRUE, internal = TRUE)
+ usethis::use_data(resultados, overwrite = TRUE)
 ## Tests ----
 ## Add one line by test you want to create
 usethis::use_test( )

@@ -7,8 +7,7 @@
 app_server <- function( input, output, session ) {
 
   library(dplyr) # en teoria no deberia ir aca, pero tengo problemas con las pipe
-  load(ShinyGolem.PaperScenarios::pampa_polygon.rda)
-  load(ShinyGolem.PaperScenarios::resultados.rda)
+
   # world map (to plot near countries as Uruguay)
   world <- rnaturalearth::ne_countries(scale = "medium", 
                                        returnclass = "sf")
